@@ -4,14 +4,15 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import com.guoyonghui.listviewlearning.base.BaseActivity;
+import com.guoyonghui.listviewlearning.view.CustomListView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,6 +30,8 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     private List<String> mDatas;
 
@@ -67,7 +70,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initViews() {
-        ListView list = (ListView) findViewById(R.id.list);
+        CustomListView list = (CustomListView) findViewById(R.id.list);
         list.setAdapter(mAdapter);
     }
 
@@ -128,8 +131,20 @@ public class MainActivity extends BaseActivity {
             return mDatas.get(position);
         }
 
+//        @Override
+//        public int getViewTypeCount() {
+//            return 2;
+//        }
+//
+//        @Override
+//        public int getItemViewType(int position) {
+//            return position == 5 ? 1 : 0;
+//        }
+
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
+            Log.d(TAG, convertView == null ? "convertView is null" : "convertView is not null");
+
             ViewHolder holder;
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);

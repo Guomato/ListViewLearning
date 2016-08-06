@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.guoyonghui.listviewlearning.MainActivity">
 
-    <ListView
+    <com.guoyonghui.listviewlearning.view.CustomListView
         android:id="@+id/list"
         android:layout_width="match_parent"
-        android:layout_marginTop="@dimen/card_vertical_margin"
-        android:layout_marginBottom="@dimen/card_vertical_margin"
+        android:paddingTop="@dimen/card_vertical_margin"
+        android:paddingBottom="@dimen/card_vertical_margin"
         android:divider="@android:color/transparent"
         android:layout_height="match_parent"/>
 
