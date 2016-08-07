@@ -131,15 +131,15 @@ public class MainActivity extends BaseActivity {
             return mDatas.get(position);
         }
 
-//        @Override
-//        public int getViewTypeCount() {
-//            return 2;
-//        }
-//
-//        @Override
-//        public int getItemViewType(int position) {
-//            return position == 5 ? 1 : 0;
-//        }
+        @Override
+        public int getViewTypeCount() {
+            return 2;
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return position == 4 ? 1 : 0;
+        }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
